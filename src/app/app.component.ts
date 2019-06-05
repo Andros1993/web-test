@@ -13,8 +13,9 @@ import {RequestService} from './service/request.service';
 
 interface productItem {
   picUrl: string;
-  href: string;
-  title: string;
+  name: string;
+  keyword: string;
+  url: string;
 }
 
 @Component({

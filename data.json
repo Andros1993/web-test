@@ -1,14 +1,10 @@
 {
   "items": [
     {
-      "picUrl": ""
+      "picUrl": "https://raw.githubusercontent.com/Andros1993/web-test/master/1559748195545.jpg",
+      "name": "testName",
+      "keyword": "testKeyword",
+      "url": "testUrl"
     }
-  ],
-  "dependencies": {
-    "rxjs": "^6.3.0",
-    "zone.js": "~0.8.26"
-  },
-  "devDependencies": {
-    "typescript": "~3.1.1"
-  }
+  ]
 }
