@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {
   trigger,
   state,
@@ -9,22 +9,34 @@ import {
 } from '@angular/animations';
 
 import { RouterOutlet } from '@angular/router';
+import {RequestService} from './service/request.service';
+
+interface productItem {
+  picUrl: string;
+  href: string;
+  title: string;
+}
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
 })
-export class AppComponent {
-  @HostBinding('@.disabled')
-  public animationsDisabled = false;
+export class AppComponent implements OnInit{
 
-  prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  productItemList: productItem [] = []
+
+  constructor(
+    private requestService: RequestService
+  ) {}
+
+  ngOnInit(): void {
+    console.log("开始获取数据")
+    this.requestService.getArticles().subscribe(
+      test => {
+        console.log(test)
+      }
+    )
   }
 
-
-  toggleAnimations() {
-    this.animationsDisabled = !this.animationsDisabled;
-  }
 }

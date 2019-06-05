@@ -1,0 +1,17 @@
+{
+  "name": "angular-io-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Example project from an angular.io guide.",
+  "scripts": {
+    "ng": "ng"
+  },
+  "keywords": [],
+  "dependencies": {
+    "rxjs": "^6.3.0",
+    "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "typescript": "~3.1.1"
+  }
+}
