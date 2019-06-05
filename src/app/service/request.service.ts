@@ -131,6 +131,6 @@ export class RequestService {
 
   //获取文章列表
   public getArticles(): Observable<string> {
-    return this._http.get<string>("https://raw.githubusercontent.com/Andros1993/web-test/master/tslint.json");
+    return this._http.get<string>("https://raw.githubusercontent.com/Andros1993/web-test/master/data.json");
   }
 }
