@@ -378,10 +378,10 @@ ng-zorro-antd/popconfirm
 
 ng-zorro-antd/modal
 
+ng-zorro-antd/card
+
 @angular/router
 MIT
-
-ng-zorro-antd/card
 
 core-js
 MIT
