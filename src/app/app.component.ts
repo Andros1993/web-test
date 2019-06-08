@@ -36,7 +36,7 @@ export class AppComponent implements OnInit{
     this.requestService.getArticles().subscribe(
       jsonData => {
         console.log(jsonData)
-        this.productItemList.push(jsonData.items[0])
+        this.productItemList = jsonData.items
         console.log(this.productItemList)
       }
     )
