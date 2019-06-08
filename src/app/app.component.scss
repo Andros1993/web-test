@@ -1,0 +1,11 @@
+.container {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .item {
+    width: fit-content;
+    margin: 20px;
+  }
+}
+
