@@ -11,6 +11,7 @@ import {
 import { RouterOutlet } from '@angular/router';
 import {JsonData, ProductItem, RequestService} from './service/request.service';
 
+
 // interface ProductItem {
 //   picUrl: string;
 //   name: string;
