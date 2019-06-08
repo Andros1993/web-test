@@ -9,7 +9,7 @@ import {
 } from '@angular/animations';
 
 import { RouterOutlet } from '@angular/router';
-import {ProductItem, RequestService} from './service/request.service';
+import {JsonData, ProductItem, RequestService} from './service/request.service';
 
 // interface ProductItem {
 //   picUrl: string;
@@ -25,8 +25,7 @@ import {ProductItem, RequestService} from './service/request.service';
 })
 export class AppComponent implements OnInit{
 
-  productItemList = []
-  testitem: ProductItem
+  productItemList: ProductItem[] = []
 
   constructor(
     private requestService: RequestService
@@ -35,10 +34,10 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     console.log("开始获取数据")
     this.requestService.getArticles().subscribe(
-      items => {
-        console.log(items)
-        this.productItemList = items
-        this.testitem = items[0]
+      jsonData => {
+        console.log(jsonData)
+        this.productItemList.push(jsonData.items[0])
+        console.log(this.productItemList)
       }
     )
   }
