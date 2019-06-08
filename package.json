@@ -5,7 +5,7 @@
   "description": "Example project from an angular.io guide.",
   "scripts": {
     "ng": "ng",
-    "build": "ng build --prod --base-href \"https://andros1993.github.io/web-test/\"",
+    "build": "ng build --prod --base-href \"https://andros1993.github.io/ellentesthub/\"",
     "start": "ng serve",
     "test": "ng test",
     "lint": "tslint ./src/**/*.ts -t verbose",

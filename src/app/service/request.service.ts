@@ -142,6 +142,6 @@ export class RequestService {
 
   //获取文章列表
   public getArticles(): Observable<JsonData> {
-    return this._http.get<JsonData>("https://raw.githubusercontent.com/Andros1993/web-test/master/data.json");
+    return this._http.get<JsonData>("https://raw.githubusercontent.com/Andros1993/ellentesthub/master/data.json");
   }
 }
