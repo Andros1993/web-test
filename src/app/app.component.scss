@@ -6,6 +6,9 @@
   .item {
     width: fit-content;
     margin: 20px;
+    .card {
+      box-shadow: 0 0.5rem 1rem rgba(0, 36, 72, 0.13);
+    }
   }
 }
 
