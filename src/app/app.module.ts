@@ -19,10 +19,7 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     NgZorroAntdModule,
-    RouterModule.forRoot([
-      { path: '', pathMatch: 'full', redirectTo: '/enter-leave' },
 
-    ])
   ],
   declarations: [
     AppComponent,

@@ -99,6 +99,13 @@ export interface ArticleList {
   sort_order: string;
 }
 
+export interface ProductItem {
+  picUrl: string;
+  name: string;
+  keyword: string;
+  url: string;
+}
+
 
 @Injectable()
 export class RequestService {
@@ -130,7 +137,7 @@ export class RequestService {
   }
 
   //获取文章列表
-  public getArticles(): Observable<string> {
-    return this._http.get<string>("https://raw.githubusercontent.com/Andros1993/web-test/master/data.json");
+  public getArticles(): Observable<Array<ProductItem>> {
+    return this._http.get<Array<ProductItem>>("https://raw.githubusercontent.com/Andros1993/web-test/master/data.json");
   }
 }

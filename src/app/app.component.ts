@@ -9,14 +9,14 @@ import {
 } from '@angular/animations';
 
 import { RouterOutlet } from '@angular/router';
-import {RequestService} from './service/request.service';
+import {ProductItem, RequestService} from './service/request.service';
 
-interface productItem {
-  picUrl: string;
-  name: string;
-  keyword: string;
-  url: string;
-}
+// interface ProductItem {
+//   picUrl: string;
+//   name: string;
+//   keyword: string;
+//   url: string;
+// }
 
 @Component({
   selector: 'app-root',
@@ -25,7 +25,8 @@ interface productItem {
 })
 export class AppComponent implements OnInit{
 
-  productItemList: productItem [] = []
+  productItemList = []
+  testitem: ProductItem
 
   constructor(
     private requestService: RequestService
@@ -34,8 +35,10 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     console.log("开始获取数据")
     this.requestService.getArticles().subscribe(
-      test => {
-        console.log(test)
+      items => {
+        console.log(items)
+        this.productItemList = items
+        this.testitem = items[0]
       }
     )
   }
