@@ -116,30 +116,7 @@ export class RequestService {
 
   constructor(private _http: HttpClient) {
   }
-
-  // 这个是针对 guide 服务的请求服务，对接zendesk
-  //https://whaleblue.zendesk.com/api/v2/help_center/categories.json
-
-  _categories = 'categories.json';
-  _sections = 'sections.json';
-  _articles = 'articles.json';
-
-  //  模块测试API url
-  private baseUrl = `https://leverup.zendesk.com/api/v2/help_center`;
-  private getCategoriesUrl = `${this.baseUrl}/${this._categories}`;
-  private getSectionUrl = `${this.baseUrl}/${this._sections}`;
-  private getArticlesUrl = `${this.baseUrl}/${this._articles}`;
-
-  //获取category列表
-  public getCategories(): Observable<CategoryList> {
-    return this._http.get<CategoryList>(this.getCategoriesUrl);
-  }
-
-  //获取section列表（包含所有category的section）
-  public getSections(): Observable<SectionList> {
-    return this._http.get<SectionList>(this.getSectionUrl);
-  }
-
+  
   //获取文章列表
   public getArticles(): Observable<JsonData> {
     return this._http.get<JsonData>("https://raw.githubusercontent.com/Andros1993/ellentesthub/master/data.json");
