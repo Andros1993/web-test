@@ -110,6 +110,24 @@ export interface ProductItem {
   url: string
 }
 
+export interface PicObject {
+  name: string;
+  path: string;
+  sha: string;
+  size: number;
+  url: string;
+  html_url: string;
+  git_url: string;
+  download_url: string;
+  type: string;
+  _links: Links;
+}
+
+export interface Links {
+  self: string;
+  git: string;
+  html: string;
+}
 
 @Injectable()
 export class RequestService {
@@ -118,7 +136,8 @@ export class RequestService {
   }
 
   //获取文章列表
-  public getArticles(): Observable<JsonData> {
-    return this._http.get<JsonData>("https://raw.githubusercontent.com/Andros1993/ellentesthub/master/data.json");
+  public getArticles(): Observable<Array<PicObject>> {
+    // return this._http.get<JsonData>("https://raw.githubusercontent.com/Andros1993/ellentesthub/master/data.json");
+    return this._http.get<Array<PicObject>>("https://api.github.com/repos/Andros1993/ellentesthub/contents/pic");
   }
 }

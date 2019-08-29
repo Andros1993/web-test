@@ -1,10 +1,10 @@
 <div class="container">
   <div class="item" *ngFor="let item of productItemList" >
     <nz-card class="card" nzHoverable style="width:auto; max-width: 700px" [nzCover]="coverTemplate" >
-      <nz-card-meta [nzTitle]=item.name [nzDescription]=item.keyword></nz-card-meta>
+      <nz-card-meta [nzTitle]=item.name [nzDescription]=item.name></nz-card-meta>
     </nz-card>
     <ng-template #coverTemplate>
-      <img alt="example" [src]=item.picUrl >
+      <img alt="example" [src]=item.download_url >
     </ng-template>
   </div>
 </div>
