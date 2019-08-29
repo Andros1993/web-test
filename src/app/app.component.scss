@@ -12,10 +12,20 @@
     .card {
       box-shadow: 0 0.5rem 1rem rgba(0, 36, 72, 0.13);
       border-radius: 10px;
+
     }
   }
 }
-
+::ng-deep .ant-card-body {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  button {
+    position: absolute;
+    right: 24px;
+  }
+}
 img {
   border-radius: 10px 10px 0 0;
   padding: 20px;

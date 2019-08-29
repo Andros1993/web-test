@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
+import { ClipboardModule } from "ngx-clipboard";
 
 /** 配置 angular i18n **/
 import { registerLocaleData } from '@angular/common';
@@ -19,7 +20,7 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     NgZorroAntdModule,
-
+    ClipboardModule
   ],
   declarations: [
     AppComponent,

@@ -1,23 +1,9 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  // ...
-} from '@angular/animations';
+
 
 import { RouterOutlet } from '@angular/router';
 import {JsonData, PicObject, ProductItem, RequestService} from './service/request.service';
-
-
-// interface ProductItem {
-//   picUrl: string;
-//   name: string;
-//   keyword: string;
-//   url: string;
-// }
+import {ClipboardService, IClipboardResponse} from 'ngx-clipboard';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +15,8 @@ export class AppComponent implements OnInit{
   productItemList: PicObject[] = []
 
   constructor(
-    private requestService: RequestService
+    private requestService: RequestService,
+    private clipboardService: ClipboardService
   ) {}
 
   ngOnInit(): void {
@@ -49,7 +36,7 @@ export class AppComponent implements OnInit{
     )
   }
 
-  test() {
-    console.log("click the card")
+  copyDetail(str: string) {
+    this.clipboardService.copyFromContent(str)
   }
 }

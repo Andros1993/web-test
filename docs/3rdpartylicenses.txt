@@ -380,6 +380,12 @@ ng-zorro-antd/modal
 
 ng-zorro-antd/card
 
+ngx-window-token
+MIT
+
+ngx-clipboard
+MIT
+
 @angular/router
 MIT
 
