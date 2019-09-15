@@ -15,15 +15,40 @@
 
     }
   }
+  canvas {
+    z-index: -1;
+  }
 }
-::ng-deep .ant-card-body {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: center;
-  button {
-    position: absolute;
-    right: 24px;
+::ng-deep .item .ant-card {
+  //background-color: d;
+
+  .ant-card-body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    .ant-card-meta {
+      width: 100%;
+    }
+    button {
+      margin-top: 15px;
+      width: 100%;
+    }
+    .ant-card-meta-title {
+      /*使用你自己的字体*/
+      font-family: samba;
+      font-style: oblique;
+      font-size: 21px;
+      font-weight: 900;
+      color: brown;
+    }
+    /*使用前必须先定义*/
+    @font-face {
+      /* 字体名称随意起 */
+      font-family: samba;
+      /*你下载字体所在的位置*/
+      src: url('font/Samba.ttf');
+    }
   }
 }
 img {
