@@ -378,15 +378,15 @@ ng-zorro-antd/popconfirm
 
 ng-zorro-antd/modal
 
+@angular/router
+MIT
+
 ng-zorro-antd/card
 
 ngx-window-token
 MIT
 
 ngx-clipboard
-MIT
-
-@angular/router
 MIT
 
 core-js

@@ -12,6 +12,7 @@ import { ClipboardModule } from "ngx-clipboard";
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import {RequestService} from './service/request.service';
+import { AppRoutingModule } from './app-routing.module';
 registerLocaleData(zh);
 
 @NgModule({
@@ -20,7 +21,8 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     NgZorroAntdModule,
-    ClipboardModule
+    ClipboardModule,
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
