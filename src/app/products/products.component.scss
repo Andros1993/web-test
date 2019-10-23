@@ -1,0 +1,68 @@
+.products-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  .item {
+    width: 350px;
+    margin: 20px;
+    height: 400px;
+    .card {
+      box-shadow: 0 0.5rem 1rem rgba(0, 36, 72, 0.13);
+      border-radius: 10px;
+
+    }
+  }
+  canvas {
+    z-index: -1;
+  }
+}
+.loading {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+::ng-deep .item .ant-card {
+  margin: 20px;
+  height: 400px;
+
+  .ant-card-body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    .ant-card-meta {
+      width: 100%;
+    }
+    button {
+      margin-top: 15px;
+      width: 100%;
+    }
+    .ant-card-meta-title {
+      /*使用你自己的字体*/
+      font-family: samba;
+      font-style: oblique;
+      font-size: 21px;
+      font-weight: 900;
+      color: brown;
+    }
+    /*使用前必须先定义*/
+    @font-face {
+      /* 字体名称随意起 */
+      font-family: samba;
+      /*你下载字体所在的位置*/
+      src: url('../font/Samba.ttf');
+    }
+  }
+}
+img {
+  border-radius: 10px 10px 0 0;
+  padding: 20px;
+  width: 308px;
+  height: 280px;
+  object-fit: contain;
+}
+

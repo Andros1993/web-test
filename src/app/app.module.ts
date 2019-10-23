@@ -13,6 +13,11 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import {RequestService} from './service/request.service';
 import { AppRoutingModule } from './app-routing.module';
+import { ProductsComponent } from './products/products.component';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { ToolsComponent } from './tools/tools.component';
+// import { TimelineLite, Back, Power1, SlowMo } from 'gsap'
 registerLocaleData(zh);
 
 @NgModule({
@@ -22,10 +27,15 @@ registerLocaleData(zh);
     BrowserAnimationsModule,
     NgZorroAntdModule,
     ClipboardModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   declarations: [
     AppComponent,
+    ProductsComponent,
+    HomeComponent,
+    HeaderComponent,
+    ToolsComponent,
   ],
   bootstrap: [AppComponent],
   /** 配置 ng-zorro-antd 国际化（文案 及 日期） **/

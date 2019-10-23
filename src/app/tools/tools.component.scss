@@ -1,0 +1,12 @@
+.tools-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  button {
+    width: fit-content;
+    margin: 20px 0;
+  }
+  textarea {
+    height: 300px;
+  }
+}
