@@ -7,6 +7,7 @@
     "ng": "ng",
     "build": "ng build --prod --base-href \"https://yfreechannel.com/\"",
     "start": "ng serve --host 192.168.3.14",
+    "start2": "ng serve",
     "test": "ng test",
     "lint": "tslint ./src/**/*.ts -t verbose",
     "e2e": "ng e2e"
