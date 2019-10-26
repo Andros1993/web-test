@@ -1,11 +1,4 @@
-<div class="container content--canvas">
-  <div class="item" *ngFor="let item of productItemList" >
-    <nz-card class="card" nzHoverable style="width:auto; max-width: 700px" [nzCover]="coverTemplate" >
-      <nz-card-meta [nzTitle]=item.name></nz-card-meta>
-      <button nz-button nzType="primary" (click)="copyDetail(item.name)">Copy Detail</button>
-    </nz-card>
-    <ng-template #coverTemplate>
-      <img alt="example" [src]=item.download_url >
-    </ng-template>
-  </div>
+<div class="root-container" id="root-container">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
 </div>

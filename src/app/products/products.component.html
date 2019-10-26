@@ -1,0 +1,16 @@
+<div class="products-container" *ngIf="!isLoading">
+<!--<div class="products-container content&#45;&#45;canvas">-->
+  <!--<router-outlet></router-outlet>-->
+  <div class="item" *ngFor="let item of productItemList" >
+    <nz-card class="card" nzHoverable style="width:auto; max-width: 700px" [nzCover]="coverTemplate" >
+      <nz-card-meta [nzTitle]=item.name></nz-card-meta>
+      <button nz-button nzType="primary" (click)="copyDetail(item.name)">Copy Detail</button>
+    </nz-card>
+    <ng-template #coverTemplate>
+      <img alt="example" [src]=item.download_url >
+    </ng-template>
+  </div>
+</div>
+<div *ngIf="isLoading" class="loading">
+  <nz-spin nzSimple [nzSize]="'large'" ></nz-spin>
+</div>

@@ -142,7 +142,9 @@ function createCanvas() {
 		height: 100%;
 		z-index: -1;
 	`;
-	container.appendChild(canvas.b);
+	if (container) {
+    container.appendChild(canvas.b);
+  }
 	ctx = {
 		a: canvas.a.getContext('2d'),
 		b: canvas.b.getContext('2d')

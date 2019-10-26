@@ -132,12 +132,20 @@ export interface Links {
 @Injectable()
 export class RequestService {
 
+  isPc: boolean = false
+
   constructor(private _http: HttpClient) {
+    this.isPc = !navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+
   }
 
   //获取文章列表
   public getArticles(): Observable<Array<PicObject>> {
     // return this._http.get<JsonData>("https://raw.githubusercontent.com/Andros1993/ellentesthub/master/data.json");
     return this._http.get<Array<PicObject>>("https://api.github.com/repos/Andros1993/ellentesthub/contents/pic");
+  }
+
+  public getUserAgent(): boolean {
+    return this.isPc
   }
 }
