@@ -1,5 +1,6 @@
 @media (min-width: 768px) {
   .header-container {
+    background-color: rgba(256,256,256,0.7);
     width: 100%;
     height: 89px;
     border-bottom: 1px solid #E5E9ED;
@@ -49,24 +50,37 @@
 
 @media (max-width: 768px) {
 
-  ::ng-deep .menu-container {
-    margin-top: 20px;
-
-    a {
-      font-size: 19px;
-      line-height: 49px;
-      font-weight: 600;
-      height: 80px;
-      display: flex;
-      align-items: flex-end;
-      border-bottom: 1px solid #E4ECF4;
-      margin-bottom: 0;
-      &:focus {
-        background-color: #039be5;
+  ::ng-deep .header-modal {
+    .ant-modal-content {
+      border-radius: 10px;
+      .ant-modal-body {
+        background: url(https://ethanwp.oss-cn-shenzhen.aliyuncs.com/download/%E5%B7%A6%E4%B8%8B.png) no-repeat fixed bottom left,
+        url(https://ethanwp.oss-cn-shenzhen.aliyuncs.com/download/%E5%8F%B3%E4%B8%8A.png) no-repeat fixed top right,
+        #f0f2f7;
+        border-radius: 10px;
+        .menu-container {
+          margin-top: 20px;
+          a {
+            font-size: 19px;
+            line-height: 49px;
+            font-weight: 600;
+            height: 80px;
+            display: flex;
+            align-items: flex-end;
+            border-bottom: 1px solid #E4ECF4;
+            margin-bottom: 0;
+            &:focus {
+              background-color: #039be5;
+            }
+          }
+        }
       }
     }
   }
+
+
   .header-container {
+    background-color: rgba(256,256,256,0.7);
     display: flex;
     flex-direction: row;
     height: 60px;

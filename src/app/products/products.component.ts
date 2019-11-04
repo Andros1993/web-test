@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PicObject, RequestService} from '../service/request.service';
 import {ClipboardService} from 'ngx-clipboard';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-products',
@@ -13,7 +14,8 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private requestService: RequestService,
-    private clipboardService: ClipboardService
+    private clipboardService: ClipboardService,
+    private message: NzMessageService
   ) {
   }
 
@@ -61,5 +63,6 @@ export class ProductsComponent implements OnInit {
 
   copyDetail(str: string) {
     this.clipboardService.copyFromContent(str);
+    this.message.info('Copied');
   }
 }
