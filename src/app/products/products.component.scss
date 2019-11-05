@@ -45,15 +45,48 @@
     .ant-card-meta {
       width: 100%;
     }
-    button {
-      margin-top: 15px;
+    .active-content {
+      display: flex;
+      flex-direction: row;
       width: 100%;
+      margin-top: 15px;
+      align-items: center;
+      justify-content: space-between;
+      button {
+        width: 50%;
+        font-size: 14px;
+      }
+      .share-group {
+        display: flex;
+        flex-direction: row;
+        .facebook-link::before {
+          display: flex;
+          align-items: center;
+          content: "";
+          width: 30px;
+          height: 30px;
+          background: url("/assets/images/index/icons8-facebook.svg") no-repeat;
+          background-size: 100% 100%;
+          margin-right: 15px;
+        }
+        .amazon-link::before {
+          margin-top: 1px;
+          display: flex;
+          align-items: center;
+          content: "";
+          width: 30px;
+          height: 30px;
+          background: url("/assets/images/index/icons8-amazon.svg") no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+
     }
     .ant-card-meta-title {
       /*使用你自己的字体*/
       font-family: samba;
       font-style: oblique;
-      font-size: 21px;
+      font-size: 19px;
       font-weight: 900;
       color: brown;
     }
