@@ -4,7 +4,18 @@
   <div class="item" *ngFor="let item of productItemList" >
     <nz-card class="card" nzHoverable style="width:auto; max-width: 700px" [nzCover]="coverTemplate" >
       <nz-card-meta [nzTitle]=item.name></nz-card-meta>
-      <button nz-button nzType="primary" (click)="copyDetail(item.name)">Copy Detail</button>
+      <div class="active-content">
+        <button nz-button nzType="primary" (click)="copyDetail(item.name)">Copy Detail</button>
+        <!--<a class="amazon" href="https://www.amazon.com/s?k=bluetooth headphones&ref=is_s" target="_blank">sdfs</a>-->
+        <!--<a class="amazon" href="com.amazon.mobile.shopping://www.amazon.com/products/B00KWFCV32/" target="_blank">sdfs</a>-->
+        <!--<a class="amazon" href="fb-messenger://user/100029455444250" target="_blank">sdfs</a>-->
+        <div class="share-group">
+          <a class="facebook-link" href="http://m.me/100029455444250" target="_blank"></a>
+          <!--<a class="amazon-link" href="com.amazon.mobile.shopping://www.amazon.com/products/s?k=bluetooth headphones" target="_blank"></a>-->
+          <a class="amazon-link" href="https://www.amazon.com/s?k={{item.name}}&ref=is_s" target="_blank"></a>
+        </div>
+
+      </div>
     </nz-card>
     <ng-template #coverTemplate>
       <img alt="example" [src]=item.download_url >

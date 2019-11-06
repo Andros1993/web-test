@@ -21,7 +21,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     // let teststr = "Air_Purifier$19.99.jpg"
-    // let reg = new RegExp('_', "g")
+    // // let reg = new RegExp('_', "g")
     // let name  = teststr.replace('.jpg', '')
     //   .replace(reg, ' ')
     //   .match(/.+$/)
@@ -64,5 +64,9 @@ export class ProductsComponent implements OnInit {
   copyDetail(str: string) {
     this.clipboardService.copyFromContent(str);
     this.message.info('Copied');
+  }
+
+  gotoAmazon(keyWord) {
+
   }
 }
