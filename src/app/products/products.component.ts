@@ -56,6 +56,9 @@ export class ProductsComponent implements OnInit {
             .replace('.JPG', '')
             .replace('.PNG','')
             .replace(reg, ' ')
+          item.download_url = item.download_url
+            .replace('raw.githubusercontent.com', 'cdn.jsdelivr.net/gh')
+            .replace('/master', '')
         })
       }
     )
