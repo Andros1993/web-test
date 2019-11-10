@@ -50,7 +50,13 @@ export class ProductsComponent implements OnInit {
         this.productItemList = jsonData
         let reg = new RegExp('_', "g")
         this.productItemList.map( item => {
+          if (item.name.indexOf('&') > -1) {
+            // only if get the price tag
+            item['price'] = item.name.substring(item.name.indexOf('&') + 1, item.name.lastIndexOf('.'))
+            item.name = item.name.replace(item.name.substring(item.name.indexOf('&'), item.name.lastIndexOf('.')), '')
+          }
           item.name = item.name
+            // .replace( item.name.substring(item.name.indexOf('&'), item.name.lastIndexOf('.')),'')
             .replace('.jpg', '')
             .replace('.png', '')
             .replace('.JPG', '')

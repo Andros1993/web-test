@@ -42,23 +42,42 @@
     flex-direction: column;
     position: relative;
     align-items: center;
+    padding-top: 0;
     .ant-card-meta {
       width: 100%;
     }
     .active-content {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       width: 100%;
-      margin-top: 15px;
-      align-items: center;
       justify-content: space-between;
-      button {
-        width: 50%;
-        font-size: 14px;
+      .product-name {
+        font-size: 16px;
+        font-weight: 500;
+        color: #111;
+        margin-bottom: 8px;
       }
+      .product-price {
+        font-size: 17px;
+        font-weight: 500;
+        color: #111;
+        span {
+          font-size: 13px;
+          font-weight: 500;
+          position: relative;
+          color: #111;
+          top: -5px;
+          margin-right: 2px;
+        }
+      }
+      //button {
+      //  width: 50%;
+      //  font-size: 14px;
+      //}
       .share-group {
         display: flex;
         flex-direction: row;
+        justify-content: flex-end;
         .facebook-link::before {
           display: flex;
           align-items: center;
@@ -70,7 +89,7 @@
           margin-right: 15px;
         }
         .amazon-link::before {
-          margin-top: 1px;
+          margin-top: 2px;
           display: flex;
           align-items: center;
           content: "";
@@ -84,19 +103,18 @@
     }
     .ant-card-meta-title {
       /*使用你自己的字体*/
-      font-family: samba;
-      font-style: oblique;
-      font-size: 19px;
-      font-weight: 900;
-      color: brown;
+      font-family: Open Sans, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: black;
     }
-    /*使用前必须先定义*/
-    @font-face {
-      /* 字体名称随意起 */
-      font-family: samba;
-      /*你下载字体所在的位置*/
-      src: url('../font/Samba.ttf');
-    }
+    ///*使用前必须先定义*/
+    //@font-face {
+    //  /* 字体名称随意起 */
+    //  font-family: samba;
+    //  /*你下载字体所在的位置*/
+    //  src: url('../font/Samba.ttf');
+    //}
   }
 }
 
