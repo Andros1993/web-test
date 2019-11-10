@@ -52,7 +52,8 @@ export class ProductsComponent implements OnInit {
         this.productItemList.map( item => {
           if (item.name.indexOf('&') > -1) {
             // only if get the price tag
-            item['price'] = item.name.substring(item.name.indexOf('&') + 1, item.name.lastIndexOf('.'))
+            item['price'] = item.name.substring(item.name.indexOf('&') + 1, item.name.indexOf('.'))
+            item['fraction'] = item.name.substring(item.name.indexOf('.') + 1, item.name.lastIndexOf('.'))
             item.name = item.name.replace(item.name.substring(item.name.indexOf('&'), item.name.lastIndexOf('.')), '')
           }
           item.name = item.name

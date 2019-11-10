@@ -7,19 +7,22 @@
       <div class="active-content">
         <!--<button nz-button nzType="primary" (click)="copyDetail(item.name)">Copy Detail</button>-->
         <p class="product-name">{{item.name}}</p>
-        <p class="product-price"><span>$</span>12.99</p>
+        <div class="price-share">
+          <p class="product-price"><span *ngIf="item.price">$</span>{{item.price}}<span>{{item.fraction}}</span></p>
 
-        <div class="share-group">
-          <a class="facebook-link" href="http://m.me/100029455444250" target="_blank"></a>
-          <a class="amazon-link" href="https://www.amazon.com/s?k={{item.name}}&ref=is_s"></a>
-          <!--<a class="amazon-link" href="com.amazon.mobile.shopping://www.amazon.com/s?k={{item.urlname}}"></a>-->
+          <div class="share-group">
+            <a class="facebook-link" href="http://m.me/100029455444250" target="_blank"></a>
+            <a class="amazon-link" href="https://www.amazon.com/s?k={{item.name}}&ref=is_s"></a>
+            <!--<a class="amazon-link" href="com.amazon.mobile.shopping://www.amazon.com/s?k={{item.urlname}}"></a>-->
 
-          <!--<a class="amazon" href="https://www.amazon.com/s?k=bluetooth headphones&ref=is_s" target="_blank">sdfs</a>-->
-          <!--<a class="amazon" href="com.amazon.mobile.shopping://www.amazon.com/products/B00KWFCV32/" target="_blank">sdfs</a>-->
-          <!--<a class="amazon" href="fb-messenger://user/100029455444250" target="_blank">sdfs</a>-->
+            <!--<a class="amazon" href="https://www.amazon.com/s?k=bluetooth headphones&ref=is_s" target="_blank">sdfs</a>-->
+            <!--<a class="amazon" href="com.amazon.mobile.shopping://www.amazon.com/products/B00KWFCV32/" target="_blank">sdfs</a>-->
+            <!--<a class="amazon" href="fb-messenger://user/100029455444250" target="_blank">sdfs</a>-->
 
-          <!--<a class="amazon-link" href="com.amazon.mobile.shopping://www.amazon.com/products/s?k=bluetooth headphones" target="_blank"></a>-->
-          <!--<a class="amazon-link" href="https://www.amazon.com/s?k={{item.name}}&ref=is_s" target="_blank"></a>-->
+            <!--<a class="amazon-link" href="com.amazon.mobile.shopping://www.amazon.com/products/s?k=bluetooth headphones" target="_blank"></a>-->
+            <!--<a class="amazon-link" href="https://www.amazon.com/s?k={{item.name}}&ref=is_s" target="_blank"></a>-->
+          </div>
+
         </div>
 
       </div>
