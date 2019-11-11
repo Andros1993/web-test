@@ -33,7 +33,7 @@
 
 ::ng-deep .item .ant-card {
   margin: 20px;
-  height: 400px;
+  height: 370px;
 
   .ant-card-cover {
   }
@@ -42,61 +42,89 @@
     flex-direction: column;
     position: relative;
     align-items: center;
+    padding-top: 0;
     .ant-card-meta {
       width: 100%;
     }
     .active-content {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       width: 100%;
-      margin-top: 15px;
-      align-items: center;
       justify-content: space-between;
-      button {
-        width: 50%;
-        font-size: 14px;
+      .product-name {
+        font-size: 16px;
+        font-weight: 500;
+        color: #111;
+        margin-bottom: 8px;
       }
-      .share-group {
+      .price-share {
         display: flex;
         flex-direction: row;
-        .facebook-link::before {
-          display: flex;
-          align-items: center;
-          content: "";
-          width: 30px;
-          height: 30px;
-          background: url("/assets/images/index/icons8-facebook.svg") no-repeat;
-          background-size: 100% 100%;
-          margin-right: 15px;
+        justify-content: space-between;
+        .product-price {
+          font-size: 17px;
+          font-weight: 500;
+          color: #111;
+          width: fit-content;
+          span {
+            font-size: 12px;
+            font-weight: 400;
+            position: relative;
+            color: #111;
+            top: -3px;
+            margin-right: 2px;
+            &:nth-of-type(2) {
+              margin-left: 2px;
+            }
+          }
         }
-        .amazon-link::before {
-          margin-top: 1px;
+        //button {
+        //  width: 50%;
+        //  font-size: 14px;
+        //}
+        .share-group {
           display: flex;
-          align-items: center;
-          content: "";
-          width: 30px;
-          height: 30px;
-          background: url("/assets/images/index/icons8-amazon.svg") no-repeat;
-          background-size: 100% 100%;
+          flex-direction: row;
+          justify-content: flex-end;
+          width: fit-content;
+          .facebook-link::before {
+            display: flex;
+            align-items: center;
+            content: "";
+            width: 30px;
+            height: 30px;
+            background: url("/assets/images/index/icons8-facebook.svg") no-repeat;
+            background-size: 100% 100%;
+            margin-right: 15px;
+          }
+          .amazon-link::before {
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            content: "";
+            width: 30px;
+            height: 30px;
+            background: url("/assets/images/index/icons8-amazon.svg") no-repeat;
+            background-size: 100% 100%;
+          }
         }
       }
 
     }
     .ant-card-meta-title {
       /*使用你自己的字体*/
-      font-family: samba;
-      font-style: oblique;
-      font-size: 19px;
-      font-weight: 900;
-      color: brown;
+      font-family: Open Sans, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: black;
     }
-    /*使用前必须先定义*/
-    @font-face {
-      /* 字体名称随意起 */
-      font-family: samba;
-      /*你下载字体所在的位置*/
-      src: url('../font/Samba.ttf');
-    }
+    ///*使用前必须先定义*/
+    //@font-face {
+    //  /* 字体名称随意起 */
+    //  font-family: samba;
+    //  /*你下载字体所在的位置*/
+    //  src: url('../font/Samba.ttf');
+    //}
   }
 }
 
