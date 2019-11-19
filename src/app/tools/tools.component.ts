@@ -48,4 +48,83 @@ export class ToolsComponent implements OnInit {
     // })
     document.getElementById('srtoutput')['value'] = outputData
   }
+
+  transformAuto() {
+    let initIndex = 2
+    const step = 4
+    let outputData = []
+    let datainput = document.getElementById('autoinput')
+    let srt = datainput['value']
+    let inputList = srt.split('\n')
+
+    inputList = inputList.filter(function (value) {
+      if (value.trim().length <= 0) {
+        // Remove ''
+        return false
+      } else if (parseInt(value.trim())){
+        // Remove number
+        return false
+      } else if (value.indexOf('-->') > -1) {
+        // Remove -->
+        return false
+      } else {
+        return true
+      }
+    })
+
+    inputList.forEach(function (value) {
+      if (outputData.indexOf(value) === -1) {
+        outputData.push(value)
+      }
+    })
+
+    console.log(outputData)
+    document.getElementById('autooutput')['value'] = outputData.join(' ')
+  }
+
+  transformAuto2() {
+    let initIndex = 2
+    const step = 4
+    let outputData = []
+    let datainput = document.getElementById('autoinput2')
+    let srt = datainput['value']
+    let inputList = srt.split('\n')
+
+    inputList = inputList.filter(function (value) {
+      if (value.trim().length <= 0) {
+        // Remove ''
+        return false
+      } else if (parseInt(value.trim())){
+        // Remove number
+        return false
+      } else {
+        return true
+      }
+    })
+
+
+
+    inputList.forEach(function (value, index) {
+        if (outputData.indexOf(value) === -1) {
+        outputData.push(value)
+      }
+    })
+
+    let dataBuf = []
+    dataBuf.push(outputData[0])
+    dataBuf.push(outputData[1])
+    for(let i = 2; i < outputData.length - 2; ) {
+      console.log(i)
+      if (!(outputData[i].indexOf('-->') > -1 && outputData[i+1].indexOf('-->') > -1)) {
+        dataBuf.push(outputData[i])
+      }
+      dataBuf.push(outputData[i+1])
+      dataBuf.push(outputData[i+2])
+      i = i + 3
+    }
+    outputData = dataBuf
+
+    console.log(outputData)
+    document.getElementById('autooutput2')['value'] = outputData.join('\n')
+  }
 }
