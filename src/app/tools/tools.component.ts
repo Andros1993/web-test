@@ -85,50 +85,92 @@ export class ToolsComponent implements OnInit {
   }
 
   transformAuto2() {
-    let initIndex = 2;
+    let initIndex = 0;
     const step = 4;
     let outputData = [];
+    let outputDataBuf = [];
+    let bufContainer = [];
+    let bigDataList = [];
     let datainput = document.getElementById('autoinput2');
     let srt = datainput['value'];
     let inputList = srt.split('\n');
 
-    inputList = inputList.filter(function (value) {
-      if (value.trim().length <= 0) {
-        // Remove ''
-        return false;
-      } else if (parseInt(value.trim())) {
-        // Remove number
-        return false;
-      } else {
-        return true;
-      }
-    });
-
-    inputList.forEach(function (value, index) {
-      if (outputData.indexOf(value) === -1) {
-        outputData.push(value);
-        if (value.indexOf('-->') === -1 && outputData[outputData.length - 1].trim().length > 1) {
-          console.log(value)
-          outputData.push('');
+    for (let i = 0; i < inputList.length; i++) {
+      if (inputList[i].trim().length <= 0 && bufContainer.length > 0) {
+        let item = {};
+        item['dataList'] = [];
+        item['serialNumber'] = bufContainer[0];
+        item['timeLine'] = {
+          startTime: bufContainer[1].substring(0, bufContainer[1].indexOf('-->') - 1),
+          endTime: bufContainer[1].substring(bufContainer[1].indexOf('-->') + 4, bufContainer[1].lenght)
+        };
+        for (let i = 2; i < bufContainer.length; i++) {
+          item['dataList'].push(bufContainer[i]);
         }
+        bigDataList.push(item);
+        bufContainer = [];
+      } else {
+        bufContainer.push(inputList[i]);
       }
+    }
+
+
+    for (let i = 0; i < bigDataList.length - 1; i++) {
+      let buf1 = bigDataList[i];
+      let isIndex = false;
+      buf1['dataList'].forEach(function (buf1Data) {
+        if (outputData.length > 0) {
+          outputData[outputData.length - 1].dataList.forEach(function (buf2Data) {
+            if (buf2Data === buf1Data) {
+              isIndex = true;
+              outputData[outputData.length - 1].timeLine.endTime = buf1.timeLine.endTime;
+            }
+          });
+        }
+      });
+      if (!isIndex) {
+        outputData.push(buf1);
+      }
+    }
+
+    outputData.forEach(function (data) {
+      // console.log(data.serialNumber)
+      // console.log(data.timeLine.startTime + ' --> ' + data.timeLine.endTime)
+      // console.log(data.dataList)
+      outputDataBuf.push(data.serialNumber.toString());
+      outputDataBuf.push(data.timeLine.startTime.toString() + ' --> ' + data.timeLine.endTime.toString());
+      data.dataList.forEach(function (item) {
+        outputDataBuf.push(item)
+      })
+      // outputDataBuf = outputData.concat(data.dataList);
+      outputDataBuf.push('');
+      console.log(outputDataBuf)
     });
 
-    // let dataBuf = []
-    // dataBuf.push(outputData[0])
-    // dataBuf.push(outputData[1])
-    // for(let i = 2; i < outputData.length - 2; ) {
-    //   console.log(i)
-    //   if (!(outputData[i].indexOf('-->') > -1 && outputData[i+1].indexOf('-->') > -1)) {
-    //     dataBuf.push(outputData[i])
-    //   }
-    //   dataBuf.push(outputData[i+1])
-    //   dataBuf.push(outputData[i+2])
-    //   i = i + 3
-    // }
-    // outputData = dataBuf
+    // console.log(outputData)
+    // console.log(outputDataBuf)
 
-    console.log(inputList);
-    document.getElementById('autooutput2')['value'] = outputData.join('\n');
+    // for(let i = 0; i <  bigDataList.length - 1; i++) {
+    //   let buf1 = bigDataList[i]
+    //   let isIndex = false
+    //   buf1['dataList'].forEach(function (buf1Data) {
+    //     outputData.forEach(function (buf2Data) {
+    //       if (buf1Data === buf2Data) {
+    //         isIndex = true
+    //       }
+    //     })
+    //   })
+    //   if (!isIndex) {
+    //     outputData.push(buf1.serialNumber)
+    //     outputData.push(buf1.timeLine.startTime + ' --> ' + buf1.timeLine.endTime)
+    //     outputData = outputData.concat(buf1.dataList)
+    //     outputData.push('')
+    //   }
+    // }
+    //
+    // console.log(outputData)
+    //
+    // // console.log(inputList);
+    document.getElementById('autooutput2')['value'] = outputDataBuf.join('\n');
   }
 }
