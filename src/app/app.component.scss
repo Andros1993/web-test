@@ -12,5 +12,8 @@
     width: 100%;
     z-index: 10;
   }
+  ::ng-deep app-tools {
+    width: 100% !important;
+  }
 }
 
