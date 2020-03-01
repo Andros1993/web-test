@@ -173,4 +173,114 @@ export class ToolsComponent implements OnInit {
     // // console.log(inputList);
     document.getElementById('autooutput2')['value'] = outputDataBuf.join('\n');
   }
+
+
+  transformAuto3() {
+    let initIndex = 0;
+    const step = 4;
+    let outputData = [];
+    let outputDataBuf = [];
+    let bufContainer = [];
+    let bigDataList = [];
+    let datainput = document.getElementById('autoinput3');
+    let srt = datainput['value'];
+    let inputList = srt.split('\n');
+
+    console.log(inputList)
+    // 去掉多余的空格
+    inputList.forEach(function (value, index) {
+      inputList[index] = value.trim()
+    })
+    // 多行合并处理
+    for (let i = 0; i < inputList.length - 1; i ++) {
+      if (bufContainer.length > 0) {
+        let bufData = bufContainer[bufContainer.length - 1].match(/([A-Za-z])+/)
+        let newData = inputList[i].match(/([A-Za-z])+/)
+        if (!!bufData && !!newData && bufData.length > 0 && newData.length > 0) {
+          bufContainer[bufContainer.length - 1] = bufContainer[bufContainer.length - 1] + ' ' + inputList[i]
+        } else {
+          bufContainer.push(inputList[i])
+        }
+      } else {
+        bufContainer.push(inputList[i])
+      }
+    }
+
+    console.log(bufContainer)
+    // console.log(outputDataBuf)
+
+    document.getElementById('autooutput3')['value'] = bufContainer.join('\n');
+  }
+
+  transformAuto4() {
+    let initIndex = 2;
+    const step = 4;
+    let outputData = [];
+    let datainput = document.getElementById('autoinput4');
+    let srt = datainput['value'];
+    let inputList = srt.split('\n');
+
+    inputList = inputList.filter(function (value) {
+      if (value.trim().length <= 0) {
+        // Remove ''
+        return false;
+      } else if (parseInt(value.trim())) {
+        // Remove number
+        return false;
+      } else if (value.indexOf('-->') > -1) {
+        // Remove -->
+        return false;
+      } else {
+        return true;
+      }
+    });
+
+    inputList.forEach(function (value) {
+      if (outputData.indexOf(value) === -1) {
+        outputData.push(value);
+      }
+    });
+
+    console.log(outputData);
+    document.getElementById('autooutput4')['value'] = outputData.join('\n');
+  }
+
+  transformAuto5() {
+    let initIndex = 2;
+    const step = 4;
+    let outputData = [];
+    let datainput = document.getElementById('autoinput5');
+    let srt = datainput['value'];
+    let s = document.createElement('div');
+    s.innerHTML = srt;
+    let transcript = s.getElementsByTagName('transcript')[0]
+    let testList = transcript.getElementsByTagName('text')
+    console.log(testList)
+    // let inputList = srt.split('\n');
+    //
+    // inputList = inputList.filter(function (value) {
+    //   if (value.trim().length <= 0) {
+    //     // Remove ''
+    //     return false;
+    //   } else if (parseInt(value.trim())) {
+    //     // Remove number
+    //     return false;
+    //   } else if (value.indexOf('-->') > -1) {
+    //     // Remove -->
+    //     return false;
+    //   } else {
+    //     return true;
+    //   }
+    // });
+    //
+    // inputList.forEach(function (value) {
+    //   if (outputData.indexOf(value) === -1) {
+    //     outputData.push(value);
+    //   }
+    // });
+    //
+    // console.log(outputData);
+    // document.getElementById('autooutput5')['value'] = outputData.join('\n');
+  }
+
 }
